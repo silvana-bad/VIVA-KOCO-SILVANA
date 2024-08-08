@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Diseño Gráfico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #fff;
+        }
+        header {
+            background-image: url('imagenes/4.png'); /* Cambiado a la ruta local */
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            height: 600px; /* Aumentado para mayor altura */
+            display: flex;
+            align-items: center;
+            text-align: left;
+        }
+        header h1 {
+            margin: 0 0 0 120px; /* Aumento del margen izquierdo del texto */
+            font-size: 3em;
+            color: #f5a6a6;
+            max-width: 60%;
+        }
+        nav {
+            background-color: #f8eae9;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        nav .logo {
+            width: 50px;
+            height: auto;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 15px;
+        }
+        nav ul li {
+            margin: 0;
+        }
+        nav ul li a {
+            color: #f5a6a6;
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        .section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .section img {
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            margin: 20px 0;
+        }
+        .section h2 {
+            margin-top: 20px;
+            color: #f8b0b0;
+        }
+        .info-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row-reverse;
+            max-width: 800px;
+            margin: 0 auto;
+            gap: 20px;
+        }
+        .info-text {
+            text-align: left;
+            margin-left: 20px;
+        }
+        .info-text h3 {
+            margin: 0;
+            font-size: 2em;
+            color: #f8b0b0;
+        }
+        .info-text p {
+            margin: 5px 0;
+            color: #666;
+            font-family: 'Poppins', Arial, sans-serif; /* Tipografía de párrafos */
+        }
+        .interests {
+            margin: 20px 0;
+            text-align: left;
+        }
+        .interests h4 {
+            color: #f8b0b0;
+        }
+        .interests img {
+            width: 50px;
+            height: auto;
+            margin: 5px;
+            vertical-align: middle;
+        }
+        .info-section .interests {
+            margin-top: 0;
+        }
+        .process {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 40px 20px;
+            background-color: #f8eae9;
+        }
+        .process-step {
+            width: 220px; /* Aumentado el tamaño del contenedor */
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s;
+            margin-bottom: 100px; /* Aumentado espacio debajo para evitar solapamiento */
+        }
+        .process-step h4 {
+            margin: 0;
+            font-size: 1.5em; /* Ampliado tamaño del título */
+            color: #f8b0b0;
+        }
+        .process-step img {
+            width: 130px; /* Aumentado tamaño del icono */
+            height: auto;
+            margin: 20px 0; /* Ampliado espacio encima y debajo del icono */
+            transition: transform 0.3s;
+            z-index: 1;
+            position: relative;
+        }
+        .process-step:hover img {
+            transform: rotate(360deg);
+        }
+        .process-step .process-info {
+            background: transparent; /* Fondo transparente */
+            padding: 15px; /* Aumentado relleno para más espacio */
+            border-radius: 8px;
+            opacity: 0;
+            transform: translateY(-80px); /* Subido más arriba */
+            transition: opacity 0.3s, transform 0.3s;
+            position: absolute;
+            left: 50%;
+            bottom: -120px; /* Ajustado para mayor espacio debajo del icono */
+            transform: translateX(-50%) translateY(-80px); /* Subido más arriba */
+            width: 100%;
+            font-size: 1em; /* Ampliado tamaño del texto */
+        }
+        .process-step:hover .process-info {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+        .projects {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 40px 20px;
+            background-color: #fff9f9;
+        }
+        .project {
+            width: 100%;
+            max-width: 300px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+            overflow: hidden;
+        }
+        .project img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .project h3 {
+            margin: 15px 0;
+            font-size: 1.2em;
+            color: #333;
+        }
+        .project p {
+            color: #666;
+        }
+        .project:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .form-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff; /* Fondo blanco para la sección de contacto */
+            border-radius: 8px;
+            box-shadow: none;
+        }
+        .form-container img {
+            width: 300px;
+            height: auto;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+        .form-content {
+            flex: 1;
+            margin-bottom: 40px;
+        }
+        .form-container h2 {
+            color: #f8b0b0;
+        }
+        .form-container input, 
+        .form-container textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-container button {
+            background-color: #f8b0b0;
+            color: #fff;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        footer {
+            background-color: #f8b0b0;
+            color: #fff;
+            padding: 20px;
+            position: relative;
+            width: 100%;
+        }
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .footer-info .socials a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        .footer-info .contact {
+            margin: 10px 0;
+        }
+        .footer-info .contact p {
+            margin: 5px 0;
+        }
+        .footer-info .rights {
+            margin-top: 20px;
+        }
+        #inicio {
+            background-color: #fef4f4;
+        }
+        #informacion {
+            background-color: #fdfdfd;
+        }
+        #habilidades {
+            background-color: #f8eae9;
+        }
+        #proyectos {
+            background-color: #fff9f9;
+        }
+        #contacto {
+            background-color: #fff; /* Fondo blanco para la sección de contacto */
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f8b0b0;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .back-to-top:hover {
+            background-color: #f5a6a6;
+        }
+        .icon-highlight {
+            position: relative;
+        }
+        .icon-highlight img {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .icon-highlight:hover img {
+            transform: scale(1.1); /* Escalar icono grande al pasar el ratón */
+            box-shadow: 0 0 15px rgba(248, 176, 176, 0.8); /* Brillo rosado */
+        }
+        /* Mejoras específicas para la sección de suscripción */
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .newsletter-form input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #f8b0b0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+        }
+        .newsletter-form input[type="email"]:focus {
+            border-color: #f5a6a6;
+        }
+        .newsletter-form button {
+            background-color: #f8b0b0;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .newsletter-form button:hover {
+            background-color: #f5a6a6;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .info-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            .info-text {
+                margin-left: 0;
+            }
+            .projects {
+                flex-direction: column;
+                align-items: center;
+            }
+            .project {
+                max-width: 90%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="imagenes/sblogotipo.png" alt="Logo" class="logo">
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#informacion">Sobre mí</a></li>
+            <li><a href="#habilidades">Proceso creativo</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Conoce mi <br> espacio creativo</h1>
+    </header>
+
+    <section id="inicio" class="section">
+        <h2>Suscríbete a mi newsletter</h2>
+        <p>Recibe actualizaciones sobre mis últimos proyectos, noticias y ofertas exclusivas directamente en tu bandeja de entrada.</p>
+        <div class="newsletter-form">
+            <form action="#" method="post">
+                <input type="email" name="email" placeholder="Ingresa tu email" required>
+                <button type="submit">Suscribirse</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="informacion" class="section info-section">
+        <div class="icon-highlight">
+            <img src="imagenes/iconosobremi.png" alt="Foto de perfil">
+        </div>
+        <div class="info-text">
+            <h3>Silvana Badillo</h3>
+            <p>Colombia</p>
+            <p>Diseñadora gráfica con experiencia en branding, diseño editorial y digital. Apasionada por crear soluciones visuales efectivas y atractivas.</p>
+            <div class="interests">
+                <h4>Intereses</h4>
+                <img src="imagenes/interes-02.png" alt="Interés 1">
+                <img src="imagenes/interes-03.png" alt="Interés 2">
+                <img src="imagenes/interes-01.png" alt="Interés 3">
+                <img src="imagenes/interes-04.png" alt="Interés 4">
+            </div>
+        </div>
+    </section>
+
+    <section id="habilidades" class="section">
+        <h2>Proceso Creativo</h2>
+        <div class="process">
+            <div class="process-step">
+                <h4>Investigación y Definición</h4>
+                <img src="imagenes/proceso-01.png" alt="Icono de investigación">
+                <div class="process-info">
+                    <p>Analizo objetivos, público y competencia. Defino claramente el problema y lo que necesito lograr.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <h4>Conceptualización y Diseño</h4>
+                <img src="imagenes/proceso-02.png" alt="Icono de diseño">
+                <div class="process-info">
+                    <p>Genero ideas y bocetos. Desarrollo los conceptos más fuertes y los ajusto con base en feedback.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <h4>Ejecución y Entrega</h4>
+                <img src="imagenes/proceso-03.png" alt="Icono de revisión">
+                <div class="process-info">
+                    <p>Finalizo el diseño, preparo los archivos y entrego el proyecto completo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proyectos" class="section">
+        <h2>Proyectos</h2>
+        <div class="projects">
+            <div class="project">
+                <img src="imagenes/proyecto01.png" alt="Proyecto 1">
+                <h3>The Unity Lab</h3>
+                <p>Es una marca que redefine la forma de trabajo, creando un espacio donde la inovación y productividad se fucionan</p>
+            </div>
+            <div class="project">
+                <img src="imagenes/proyecto02.png" alt="Proyecto 2">
+                <h3>Aster</h3>
+                <p>Es una marca de papeleria fresca, fresca llamativa y autentica. Busca ser el ricon de creatividad y estilo que todos necesitan.</p>
+            </div>
+            <div class="project">
+                <img src="imagenes/proyecto03.png" alt="Proyecto 3">
+                <h3>Teddy Treats</h3>
+                <p>Tienda de galletas y cupcakes que busca llevar en cada mordisco el placer de los mas frecos ingredientes. </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="section">
+        <h2>Contacto</h2>
+        <div class="form-container">
+            <img src="imagenes/formulario.png" alt="Imagen de contacto">
+            <div class="form-content">
+                <h2>Envíame un mensaje</h2>
+                <form action="#" method="post">
+                    <input type="text" name="nombre" placeholder="Nombre" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <textarea name="mensaje" placeholder="Mensaje" rows="4" required></textarea>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-info">
+            <div class="contact">
+                <p>Bucaramanga</p>
+                <p>Teléfono: +57 123 456 7890</p>
+                <p>Email: <a href="mailto:info@example.com">info@example.com</a></p>
+                <div class="socials">
+                    <a href="#" target="_blank">Facebook</a>
+                    <a href="#" target="_blank">Twitter</a>
+                    <a href="#" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+            <div class="rights">
+                <p>&copy; 2024 Silvana Badillo. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón de volver arriba -->
+    <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+        &#8593;
+    </button>
+</body>
+</html>
